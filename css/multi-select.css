@@ -1,6 +1,5 @@
 .ms-container{
-  background: transparent url('../img/switch.png') no-repeat 50% 50%;
-  width: 370px;
+  /*width: 370px;*/
 }
 
 .ms-container:after{
@@ -18,7 +17,6 @@
   background: #fff;
   color: #555555;
   float: left;
-  width: 45%;
 }
 .ms-container .ms-selection{
   float: right;
@@ -38,7 +36,7 @@
   -moz-border-radius: 3px;
   border-radius: 3px;
   position: relative;
-  height: 200px;
+  height: 500px;
   padding: 0;
   overflow-y: auto;
 }
@@ -71,14 +69,13 @@
 
 .ms-container .ms-selectable li.ms-elem-selectable,
 .ms-container .ms-selection li.ms-elem-selection{
-  border-bottom: 1px #eee solid;
   padding: 2px 10px;
   color: #555;
   font-size: 14px;
 }
 
-.ms-container .ms-selectable li.ms-hover,
-.ms-container .ms-selection li.ms-hover{
+.ms-container .ms-selectable li.active,
+.ms-container .ms-selection li.active{
   cursor: pointer;
   color: #fff;
   text-decoration: none;
@@ -90,4 +87,37 @@
   background-color: #eee;
   color: #aaa;
   cursor: text;
+}
+
+.ms-container .ms-selection-button{
+  margin-top: 70px;
+  text-align: center;
+}
+
+.ms-container button.move-button{
+  border: 1px solid #00698c;
+  background-color: #e5eff2;
+}
+
+.ms-container .ms-selection .vertical-movement{
+  margin-top: 20px;
+  margin-button:10px;
+}
+
+.ms-container .ms-selection .clear-all{
+  margin-bottom: 10px;
+  margin-top:10px;
+}
+
+.ms-container .ms-selection .reset-all{
+  margin: 0;
+}
+
+.ms-container .ms-selection .ms-list li:nth-child(2){
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  border-bottom: 1px solid #cccccc;
 }
