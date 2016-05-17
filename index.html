@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project</title>
+    <script src="//code.jquery.com/jquery-1.9.1.min.js"></script>
+    <!--<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>-->
+    <script type="text/javascript" src="js/jquery.multi-select.js" ></script>
+
+    <link rel="stylesheet" type="text/css" href="css/multi-select.css"/>
+
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+</head>
+<body>
+<script>
+    $(document).ready(function(){
+        $("#select-box").multiSelect({selectableHeader: '<span class="semibold">Available Columns</span>', selectionHeader: '<span class="semibold">Selected Columns</span>'});
+       /* $("#ms-select-box ul").each(function(){$(this).multipleSelectBox();});*/
+    });
+
+    function submtform() {
+        var userColumns = [];
+
+        $.each($("#ms-select-box .ms-selection li"), function (i,v) {
+          userColumns.push($(v).data('ms-value'));
+        });
+        $("#userColumns").val(JSON.stringify(userColumns));
+        $("#selectionForm").submit();
+
+    }
+</script>
+
+<div class="panel">
+    <div class="panel-heading text-center">Select Boxes</div>
+    <div class="panel-body"><div id="">
+        <div class="row">
+            <div class="col-xs-3"></div>
+            <div class="col-xs-6">
+                <form id="selectionForm" action="abc.php" method="post">
+                    <input type="hidden" id="userColumns" name="userColumns"/>
+                    <select id="select-box" multiple>
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3" selected>Option 3</option>
+                        <option value="4" selected>Option 4</option>
+                        <option value="5" selected>Option 5</option>
+                        <option value="6" selected>Option 6</option>
+                        <option value="7" selected>Option 7</option>
+                        <option value="8" selected>Option 8</option>
+                        <option value="9">Option 9</option>
+                        <option value="10">Option 10</option>
+                        <option value="11">Option 11</option>
+                        <option value="12">Option 12</option>
+                        <option value="13">Option 13</option>
+                        <option value="14">Option 14</option>
+                        <option value="15">Option 15</option>
+                        <option value="16">Option 16</option>
+                        <option value="17">Option 17</option>
+                        <option value="18">Option 18</option>
+                        <option value="19">Option 19</option>
+                        <option value="20">Option 20</option>
+                    </select>
+                </form>
+
+
+            </div>
+            <div class="col-xs-3"></div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">
+                <button class="btn btn-default" onclick="submtform();">Submit</button>
+            </div>
+
+        </div>
+</div>
+
+
+</body>
+</html>
